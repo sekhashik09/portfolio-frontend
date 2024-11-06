@@ -1,59 +1,87 @@
-:root{
-    --text-color: #fff;  
+:root {
+    --text-color: #fff;
     --bg-color: #1b1f24;
     --second-bg-color: #22282f;
-    --main-color: #13bbff; 
+    --main-color: #13bbff;
     --other-color: #c3cad5;
     --h1-font: 4.5rem;
     --h2-font: 2.9rem;
     --p-font: 1rem;
   }
-header {
+  
+  header {
     position: fixed;
     width: 100%;
     top: 0;
     right: 0;
-    z-index: 1000;   
+    z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 40px 16%;
     background: transparent;
     transition: all .50s ease;
- }
-
-.logo{
+  }
+  
+  .logo {
     font-size: 22px;
     color: var(--text-color);
     font-weight: 600;
-}
-span{
+  }
+  
+  span {
     color: var(--main-color);
-}
-.navlist{
+  }
+  
+  .navlist {
     display: flex;
-}
-.navlist a{
+    align-items: center; /* Align items vertically in the center */
+  }
+  
+  .navlist a {
     font-size: var(--p-font);
     font-weight: 500;
     color: var(--other-color);
     margin-left: 40px;
-    transition:all .50s ease;
-}
-.navlist a:hover{
+    transition: all .50s ease;
+  }
+  
+  .navlist a:hover {
     color: var(--main-color);
-    /* text-decoration: underline; */
-    text-shadow: 3px 3px 20px var(--main-color),-2px 1px 30px var(--text-color);
-}
-#menu-icon{
+    text-shadow: 3px 3px 20px var(--main-color), -2px 1px 30px var(--text-color);
+  }
+  
+  #menu-icon {
     display: none;
     cursor: pointer;
     z-index: 10001;
     font-size: 35px;
-}
-header.sticky{
+  }
+  
+  header.sticky {
     background-color: var(--second-bg-color);
-    transition: all.50s ease;
+    transition: all .50s ease;
     box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0);
     padding: 16px 16%;
-}
+  }
+  
+  /* Align Language component properly */
+  .language-dropdown {
+    margin-left: 40px; /* Optional: space between other links */
+  }
+  
+  .language-dropdown .dropdown-btn {
+    font-size: var(--p-font);
+    font-weight: 500;
+    color: var(--other-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between the icon and text */
+  }
+  
+  .language-dropdown .dropdown-btn:hover {
+    color: var(--main-color);
+    text-shadow: 3px 3px 20px var(--main-color), -2px 1px 30px var(--text-color);
+  }
+  

@@ -8,36 +8,44 @@ import Portfolio from './components/portfolio/Portfolio';
 import Skills from './components/skills/Skills';
 import Alert from '@mui/material/Alert';
 import Snackbar from '@mui/material/Snackbar';
+import Language from './components/language/Language'; // Import LanguageSwitcher
+import { useTranslation } from 'react-i18next';
 
 function App() {
-  const [open, setOpen] = useState(false); 
+  const { t } = useTranslation();
+  const [open, setOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    
-    setOpen(true);
+    if (window.innerWidth < 768) {
+      setIsMobile(true);
+      setOpen(true);
+    }
   }, []);
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
-      return; 
+      return;
     }
-    setOpen(false); 
+    setOpen(false);
   };
 
   return (
     <>
-      <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
-        <Alert onClose={handleClose} severity="warning">
-          Kindly open it on Your PC!
-        </Alert>
-      </Snackbar>
+      <Language /> 
+      {isMobile && (
+        <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
+          <Alert onClose={handleClose} severity="warning">
+            {t('app.mobile_message')} 
+          </Alert>
+        </Snackbar>
+      )}
       <Header />
       <Home />
       <About />
       <Skills />
       <Portfolio />
       <Contact />
-
     </>
   );
 }

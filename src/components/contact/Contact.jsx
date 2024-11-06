@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import './Contact.css'; // Ensure this CSS file is created
+import './Contact.css';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import validator from 'email-validator';
 import { Vortex } from 'react-loader-spinner';
-
-
+import { useTranslation } from 'react-i18next';
 
 const Contact = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [loading, setLoading] = useState(false); 
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,20 +21,20 @@ const Contact = () => {
     e.preventDefault();
 
     if (!validator.validate(formData.email)) {
-      toast.error('Please enter a valid email address');
+      toast.error(t('contact.emailError'));
       return;
     }
 
-    setLoading(true); 
+    setLoading(true);
     try {
       const response = await axios.post('https://portfolio-93ca.onrender.com/send-email', formData);
-      toast.success(response.data.message); 
-      setFormData({ name: '', email: '', message: '' }); 
+      toast.success(t('contact.sendSuccess'));
+      setFormData({ name: '', email: '', message: '' });
     } catch (error) {
-      console.error(error); // Log the error for debugging
-      toast.error('Failed to send message. Please try again later.'); 
+      console.error(error);
+      toast.error(t('contact.sendError'));
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
   };
 
@@ -42,19 +42,19 @@ const Contact = () => {
     <section className="contact" id="contact">
       <div className="contact-container">
         <div className="contact-details">
-          <h2>Contact Me</h2>
+          <h2>{t('contact.heading')}</h2>
           <ul>
-            <li><strong>Address:</strong> Basirhat, Kolkata, West Bengal</li>
-            <li><strong>Phone:</strong> +91 8967665685</li>
-            <li><strong>Email:</strong> ashiksekh8967@gmail.com</li>
+            <li><strong>{t('contact.address')}:</strong> {t('contact.addressDetails')}</li>
+            <li><strong>{t('contact.phone')}:</strong> {t('contact.phoneDetails')}</li>
+            <li><strong>{t('contact.email')}:</strong> {t('contact.emailDetails')}</li>
           </ul>
         </div>
         <div className="contact-form">
-          <h2>Send a Message</h2>
-          <p>If you have any questions, please fill out the form below.</p>
+          <h2>{t('contact.formHeading')}</h2>
+          <p>{t('contact.formDescription')}</p>
           <form onSubmit={handleSubmit}>
             <div className="form-group">
-              <label htmlFor="name">Name</label>
+              <label htmlFor="name">{t('contact.nameLabel')}</label>
               <input
                 type="text"
                 id="name"
@@ -62,11 +62,11 @@ const Contact = () => {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                disabled={loading} 
+                disabled={loading}
               />
             </div>
             <div className="form-group">
-              <label htmlFor="email">Email</label>
+              <label htmlFor="email">{t('contact.emailLabel')}</label>
               <input
                 type="email"
                 id="email"
@@ -78,7 +78,7 @@ const Contact = () => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="message">Message</label>
+              <label htmlFor="message">{t('contact.messageLabel')}</label>
               <textarea
                 id="message"
                 name="message"
@@ -91,18 +91,17 @@ const Contact = () => {
             </div>
             <button type="submit" className="submit-button" disabled={loading}>
               {loading ? (
-                  (<Vortex
-                   alignment="center"
-                    visible={true}
-                    height="50"
-                    width="50"
-                    ariaLabel="vortex-loading"
-                    wrapperClass="vortex-wrapper"
-                    
-                    wrapperStyle={{ display: 'inline-block' }}
-                    colors={['red', 'green', 'blue', 'yellow', 'orange', 'purple']}
-                    />)
-              ) : 'Send Message'}
+                <Vortex
+                  alignment="center"
+                  visible={true}
+                  height="50"
+                  width="50"
+                  ariaLabel="vortex-loading"
+                  wrapperClass="vortex-wrapper"
+                  wrapperStyle={{ display: 'inline-block' }}
+                  colors={['red', 'green', 'blue', 'yellow', 'orange', 'purple']}
+                />
+              ) : t('contact.submit')}
             </button>
           </form>
           <ToastContainer />

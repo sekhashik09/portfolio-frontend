@@ -1,69 +1,75 @@
 import React from 'react';
-import './Portfolio.css'; // Ensure you have a separate CSS file for styles
+import './Portfolio.css';
 import { FaGithub } from "react-icons/fa";
-import img from '../../assets/portimg/Capture.png'
-import img1 from '../../assets/portimg/Capture1.png'
-import img2 from '../../assets/portimg/Capture2.png'
-import img3 from '../../assets/portimg/Capture3.png'
+import img from '../../assets/portimg/Capture.png';
+import img1 from '../../assets/portimg/Capture1.png';
+import img2 from '../../assets/portimg/Capture2.png';
+import img3 from '../../assets/portimg/Capture3.png';
+import { useTranslation } from 'react-i18next';
 
 const Portfolio = () => {
+  const { t } = useTranslation();
+
+  const projects = [
+    {
+      title: t('portfolio.bookSellingTitle'),
+      description: t('portfolio.bookSellingDescription'),
+      image: img,
+      githubLink: "https://github.com/sekhashik09/book-selling"
+    },
+    {
+      title: t('portfolio.qrCodeTitle'),
+      description: t('portfolio.qrCodeDescription'),
+      image: img1,
+      githubLink: "https://github.com/sekhashik09/qrcode-generator"
+    },
+    {
+      title: t('portfolio.personalPortfolioTitle'),
+      description: t('portfolio.personalPortfolioDescription'),
+      image: img2,
+      githubLink: "#"
+    },
+    {
+      title: t('portfolio.courseSeekingTitle'),
+      description: t('portfolio.courseSeekingDescription'),
+      image: img3,
+      githubLink: "https://github.com/sekhashik09/course-seeking"
+    },
+    {
+      title: t('portfolio.project5Title'),
+      description: t('portfolio.project5Description'),
+      image: img,
+      githubLink: "#"
+    },
+    {
+      title: t('portfolio.project5Title'),
+      description: t('portfolio.project5Description'),
+      image: img,
+      githubLink: "#"
+    }
+  ];
+
   return (
     <section className="portfolio" id="portfolio">
       <div className="center-text">
-        <h2>My <span>Portfolio</span></h2>
+        <h2>{t('portfolio.heading')} <span>{t('portfolio.subheading')}</span></h2>
       </div>
       <div className="portfolio-flex">
-        <div className="portfolio-card">
-          <img src={img} alt="Project 1" />
-          <div className="card-overlay">
-            <h5>Book Selling Website</h5>
-            <p>A brief description of Project 1.</p>
-            <a href="https://github.com/sekhashik09/book-selling"target='blank'><FaGithub/></a>
+        {projects.map((project, index) => (
+          <div className="portfolio-card" key={index}>
+            <img src={project.image} alt={`${project.title} image`} />
+            <div className="card-overlay">
+              <h5>{project.title}</h5>
+              <p>{project.description}</p>
+              <a href={project.githubLink} target="blank">
+                <FaGithub />
+              </a>
+            </div>
           </div>
-        </div>
-        <div className="portfolio-card">
-          <img src={img1} alt="Project 2" />
-          <div className="card-overlay">
-            <h5>QR Code Generator</h5>
-            <p>A brief description of Project 2.</p>
-            <a href="https://github.com/sekhashik09/qrcode-generator"target='blank'><FaGithub/></a>
-          </div>
-        </div>
-        <div className="portfolio-card">
-          <img src={img2} alt="Project 3" />
-          <div className="card-overlay">
-            <h5>Personal Portfolio</h5>
-            <p>A brief description of Project 3.</p>
-            <a href="#" target='blank'><FaGithub/></a>
-          </div>
-        </div>
-        <div className="portfolio-card">
-          <img src={img3} alt="Project 4" />
-          <div className="card-overlay">
-            <h5>Course Seeking Website</h5>
-            <p>A brief description of Project 4.</p>
-            <a href="https://github.com/sekhashik09/course-seeking" target='blank'><FaGithub/></a>
-          </div>
-        </div>
-        <div className="portfolio-card">
-          <img src={img} alt="Project 5" />
-          <div className="card-overlay">
-            <h5>Project Title 5</h5>
-            <p>A brief description of Project 5.</p>
-            <a href="#"><FaGithub/></a>
-          </div>
-        </div>
-        <div className="portfolio-card">
-          <img src={img} alt="Project 5" />
-          <div className="card-overlay">
-            <h5>Project Title 5</h5>
-            <p>A brief description of Project 5.</p>
-            <a href="#"><FaGithub/></a>
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );
-}
+};
 
 export default Portfolio;
