@@ -105,7 +105,8 @@ section{
         flex-direction: column; /* Stack content vertically on smaller screens */
         justify-content: center; /* Center elements vertically */
         text-align: center; /* Center text */
-        padding: 40px 10%; /* Adjust padding for smaller screens */
+        padding: 40px 10%;
+         /* Adjust padding for smaller screens */
     }
 
     .home-img .img-box {
@@ -116,6 +117,7 @@ section{
     .btn {
         padding: 12px 25px; /* Adjust button padding */
         font-size: 14px;
+        margin-bottom: 8px;
     }
 
     .sci a {
@@ -139,6 +141,7 @@ section{
     .btn {
         padding: 10px 20px; /* Adjust button padding */
         font-size: 14px;
+        margin-bottom: 7px;
     }
 
     .sci a {
@@ -149,7 +152,8 @@ section{
 
 @media (max-width: 480px) {
     .hero {
-        padding: 20px 5%; /* Even smaller padding for small screens */
+        padding: 20px 5%;
+        margin-top: 38px; /* Even smaller padding for small screens */
     }
 
     .home-img .img-box {
@@ -159,11 +163,12 @@ section{
 
     .btn {
         padding: 8px 20px; /* Adjust button size */
-        font-size: 12px; /* Smaller font size for button */
+        font-size: 12px;
+        margin-bottom: 7px; /* Smaller font size for button */
     }
 
     .sci a {
-        font-size: 12px; /* Reduce icon size further */
+        font-size: 14px; /* Reduce icon size further */
         margin: 2px 1px;
     }
 }

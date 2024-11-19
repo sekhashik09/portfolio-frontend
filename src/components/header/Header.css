@@ -1,87 +1,140 @@
 :root {
-    --text-color: #fff;
-    --bg-color: #1b1f24;
-    --second-bg-color: #22282f;
-    --main-color: #13bbff;
-    --other-color: #c3cad5;
-    --h1-font: 4.5rem;
-    --h2-font: 2.9rem;
-    --p-font: 1rem;
-  }
-  
+  --text-color: #fff;
+  --bg-color: #1b1f24;
+  --second-bg-color: #22282f;
+  --main-color: #13bbff;
+  --other-color: #c3cad5;
+  --h1-font: 4.5rem;
+  --h2-font: 2.9rem;
+  --p-font: 1rem;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 16%;
+  background: transparent;
+  transition: all 0.5s ease;
+}
+
+header.sticky {
+  background-color: var(--second-bg-color);
+  box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.2);
+  padding: 16px 16%;
+}
+
+.logo {
+  font-size: 22px;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.logo span {
+  color: var(--main-color);
+}
+
+.navlist {
+  display: flex;
+  align-items: center; /* Align items vertically in the center */
+  gap: 20px; /* Space between nav items */
+  list-style: none;
+  transition: transform 0.3s ease;
+}
+
+.navlist a {
+  font-size: var(--p-font);
+  font-weight: 500;
+  color: var(--other-color);
+  text-decoration: none;
+  transition: all 0.5s ease;
+}
+
+.navlist a:hover {
+  color: var(--main-color);
+  text-shadow: 3px 3px 20px var(--main-color), -2px 1px 30px var(--text-color);
+}
+
+.menuIcon {
+  display: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.menuIcon img {
+  width: 30px;
+  height: 30px;
+}
+
+header.sticky .menuIcon img {
+  filter: brightness(80%);
+}
+
+.language-dropdown {
+  margin-left: 20px;
+}
+
+.language-dropdown .dropdown-btn {
+  font-size: var(--p-font);
+  font-weight: 500;
+  color: var(--other-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between the icon and text */
+}
+
+.language-dropdown .dropdown-btn:hover {
+  color: var(--main-color);
+  text-shadow: 3px 3px 20px var(--main-color), -2px 1px 30px var(--text-color);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
   header {
+    padding: 20px 8%;
+  }
+
+  .navlist {
     position: fixed;
-    width: 100%;
     top: 0;
     right: 0;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 40px 16%;
-    background: transparent;
-    transition: all .50s ease;
-  }
-  
-  .logo {
-    font-size: 22px;
-    color: var(--text-color);
-    font-weight: 600;
-  }
-  
-  span {
-    color: var(--main-color);
-  }
-  
-  .navlist {
-    display: flex;
-    align-items: center; /* Align items vertically in the center */
-  }
-  
-  .navlist a {
-    font-size: var(--p-font);
-    font-weight: 500;
-    color: var(--other-color);
-    margin-left: 40px;
-    transition: all .50s ease;
-  }
-  
-  .navlist a:hover {
-    color: var(--main-color);
-    text-shadow: 3px 3px 20px var(--main-color), -2px 1px 30px var(--text-color);
-  }
-  
-  #menu-icon {
-    display: none;
-    cursor: pointer;
-    z-index: 10001;
-    font-size: 35px;
-  }
-  
-  header.sticky {
+    height: 100vh;
+    width: 70%;
     background-color: var(--second-bg-color);
-    transition: all .50s ease;
-    box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0);
-    padding: 16px 16%;
-  }
-  
-  /* Align Language component properly */
-  .language-dropdown {
-    margin-left: 40px; /* Optional: space between other links */
-  }
-  
-  .language-dropdown .dropdown-btn {
-    font-size: var(--p-font);
-    font-weight: 500;
-    color: var(--other-color);
-    cursor: pointer;
-    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 8px; /* Space between the icon and text */
+    gap: 30px; /* Larger gap between links on mobile */
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
   }
-  
-  .language-dropdown .dropdown-btn:hover {
-    color: var(--main-color);
-    text-shadow: 3px 3px 20px var(--main-color), -2px 1px 30px var(--text-color);
+
+  .navlist.open {
+    transform: translateX(0);
   }
-  
+
+  .navlist a {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+
+  .menuIcon {
+    display: block; /* Show menu icon on small screens */
+  }
+
+  .language-dropdown {
+    margin-left: 0; /* Adjust for smaller screens */
+  }
+}
+
+/* Optional: Hover effect for Menu Icon */
+.menuIcon:hover img {
+  transform: scale(1.1);
+  transition: transform 0.2s ease-in-out;
+}

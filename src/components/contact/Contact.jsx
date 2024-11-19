@@ -46,7 +46,7 @@ const Contact = () => {
           <ul>
             <li><strong>{t('contact.address')}:</strong> {t('contact.addressDetails')}</li>
             <li><strong>{t('contact.phone')}:</strong> {t('contact.phoneDetails')}</li>
-            <li><strong>{t('contact.email')}:</strong> {t('contact.emailDetails')}</li>
+            <li className='ema'><strong>{t('contact.email')}:</strong> {t('contact.emailDetails')}</li>
           </ul>
         </div>
         <div className="contact-form">

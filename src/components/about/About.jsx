@@ -22,7 +22,7 @@ const About = () => {
                 <p>{t('about.vocational')}</p>
                 <p>{t('about.secondary')}</p>
             </div>
-            <div className="box experience">
+            <div className="box">
                 <h3>{t('about.experience')}</h3>
                 <p>{t('about.internship_role')}</p>
                 <p>{t('about.projects')}</p>

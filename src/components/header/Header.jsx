@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Header.css';
 import Language from '../language/Language';
 import { useTranslation } from 'react-i18next';
+import img from './menu.png'
 
 const Header = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -9,15 +10,11 @@ const Header = () => {
   const { t } = useTranslation();
 
   const handleScroll = () => {
-    if (window.scrollY > 50) {
-      setIsSticky(true);
-    } else {
-      setIsSticky(false);
-    }
+    setIsSticky(window.scrollY > 50);
   };
 
   const handleMenuToggle = () => {
-    setIsMenuOpen(prevState => !prevState);
+    setIsMenuOpen((prev) => !prev);
   };
 
   const handleMenuClose = () => {
@@ -34,7 +31,13 @@ const Header = () => {
   return (
     <header className={isSticky ? 'sticky' : ''}>
       <a href="#" className="logo">DevUne<span>X.</span></a>
-      <div className="bx bx-menu" id="menu-icon" onClick={handleMenuToggle}></div>
+
+      {/* Menu Icon for Mobile */}
+      <div className="menuIcon" onClick={handleMenuToggle}>
+        <img src={img} alt="menu-icon" />
+      </div>
+
+      {/* Navigation Menu */}
       <ul className={`navlist ${isMenuOpen ? 'open' : ''}`}>
         <li><a href="#home" onClick={handleMenuClose}>{t('header.home')}</a></li>
         <li><a href="#about" onClick={handleMenuClose}>{t('header.about')}</a></li>

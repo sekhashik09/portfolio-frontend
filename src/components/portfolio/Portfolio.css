@@ -1,4 +1,4 @@
-:root{
+:root {
     --text-color: #fff;  
     --bg-color: #1b1f24;
     --second-bg-color: #22282f;
@@ -7,9 +7,10 @@
     --h1-font: 4.5rem;
     --h2-font: 2.9rem;
     --p-font: 1rem;
-  }
-  .portfolio {
-    padding: 107px 0%; 
+}
+
+.portfolio {
+    padding: 80px 0%; 
     background-color: var(--second-bg-color); 
 }
 
@@ -72,4 +73,43 @@
 .card-overlay a {
     color: #13bbff; /* Change to your desired link color */
     text-decoration: none; /* Remove underline */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .portfolio-card {
+        width: calc(50% - 20px); /* Two cards per row on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio-card {
+        width: calc(50% - 10px); /* Smaller two-card layout */
+        gap: 15px; /* Reduce gap between cards */
+    }
+    .portfolio-flex {
+         /* Stack cards vertically */
+        align-items: center;
+        gap: 9px; /* Center cards */
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio{
+        padding: 55px 2%;
+    }
+    .portfolio-flex {
+        flex-direction: column; /* Stack cards vertically */
+        align-items: center;
+        gap: 9px; /* Center cards */
+    }
+    .center-text{
+        margin-top: 16px;
+        text-align: center;
+        font-size: 1em;
+    }
+    .portfolio-card {
+        width: 100%; /* Full-width cards */
+        margin: 10px 0; /* Add vertical spacing between cards */
+    }
 }

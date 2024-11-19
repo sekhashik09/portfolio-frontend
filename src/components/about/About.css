@@ -64,3 +64,29 @@
     color: #555; /* Slightly lighter text for box content */
 }
 
+@media (max-width: 768px) {
+    .about-boxes {
+        flex-direction: column; /* Stack boxes vertically */
+        align-items: center; /* Center-align boxes */
+    }
+    .box {
+        margin: 10px 0; /* Add vertical spacing between boxes */
+        width: 100%; /* Optional: Make the boxes take full width */
+    }
+}
+
+@media (max-width: 480px) {
+    .about-boxes {
+        flex-direction: column; /* Stack boxes vertically */
+        align-items: center;
+         /* Center-align boxes */
+    }
+    .box {
+        margin: 10px 0; /* Add vertical spacing between boxes */
+        width: 100%;
+         /* Optional: Make the boxes take full width */
+    }
+    .box h3{
+        font-size: 20px;
+    }
+}
