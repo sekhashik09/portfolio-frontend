@@ -33,13 +33,6 @@ function App() {
   return (
     <>
       <Language /> 
-      {isMobile && (
-        <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
-          <Alert onClose={handleClose} severity="warning">
-            {t('app.mobile_message')} 
-          </Alert>
-        </Snackbar>
-      )}
       <Header />
       <Home />
       <About />

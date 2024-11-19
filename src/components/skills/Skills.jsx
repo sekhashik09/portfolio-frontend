@@ -19,6 +19,7 @@ import postman from '../../assets/skillsimg/postman.png';
 import docker from '../../assets/skillsimg/docker.png';
 import webstorm from '../../assets/skillsimg/webstrom.png';
 import vscode from '../../assets/skillsimg/vscode.png';
+import Bootstrap from '../../assets/skillsimg/boot.png'
 import { useTranslation } from 'react-i18next';
 
 const Skills = () => {
@@ -46,6 +47,10 @@ const Skills = () => {
           <div className="skill">
             <img src={reactjs} alt="React.js" />
             <p>{t('skills.react')}</p>
+          </div>
+          <div className="skill">
+            <img src={Bootstrap} alt="Bootstrap" />
+            <p>{t('Bootstrap')}</p>
           </div>
         </div>
       </div>
