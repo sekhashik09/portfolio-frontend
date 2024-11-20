@@ -125,7 +125,8 @@ header.sticky .menuIcon img {
   }
 
   .menuIcon {
-    display: block; /* Show menu icon on small screens */
+    display: block;
+    /* Show menu icon on small screens */
   }
 
   .language-dropdown {

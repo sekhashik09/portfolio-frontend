@@ -6,10 +6,9 @@ import Header from './components/header/Header';
 import Home from './components/home/Home';
 import Portfolio from './components/portfolio/Portfolio';
 import Skills from './components/skills/Skills';
-import Alert from '@mui/material/Alert';
-import Snackbar from '@mui/material/Snackbar';
-import Language from './components/language/Language'; // Import LanguageSwitcher
+import Language from './components/language/Language'; 
 import { useTranslation } from 'react-i18next';
+import Footer from './components/footer/Footer';
 
 function App() {
   const { t } = useTranslation();
@@ -39,6 +38,7 @@ function App() {
       <Skills />
       <Portfolio />
       <Contact />
+      <Footer/>
     </>
   );
 }

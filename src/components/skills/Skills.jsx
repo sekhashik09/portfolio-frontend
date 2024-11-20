@@ -1,6 +1,5 @@
 import React from 'react';
 import './Skills.css';
-import azsql from '../../assets/skillsimg/azsql.png';
 import html from '../../assets/skillsimg/html.png';
 import css from '../../assets/skillsimg/css.png';
 import js from '../../assets/skillsimg/js.png';
@@ -11,15 +10,14 @@ import mongodb from '../../assets/skillsimg/mongodb.png';
 import mysql from '../../assets/skillsimg/mysql.png';
 import firebase from '../../assets/skillsimg/firebase.png';
 import azurecloud from '../../assets/skillsimg/azurecloud.png';
-import azvm from '../../assets/skillsimg/azvm.png';
-import azvnet from '../../assets/skillsimg/azvnet.png';
 import github from '../../assets/skillsimg/github.png';
 import git from '../../assets/skillsimg/git.png';
 import postman from '../../assets/skillsimg/postman.png';
-import docker from '../../assets/skillsimg/docker.png';
 import webstorm from '../../assets/skillsimg/webstrom.png';
 import vscode from '../../assets/skillsimg/vscode.png';
-import Bootstrap from '../../assets/skillsimg/boot.png'
+import Bootstrap from '../../assets/skillsimg/boot.png';
+import py from '../../assets/skillsimg/python.png';
+import dev from '../../assets/skillsimg/devops.png';
 import { useTranslation } from 'react-i18next';
 
 const Skills = () => {
@@ -29,6 +27,7 @@ const Skills = () => {
     <section className="skills" id="skills">
       <h2>{t('skills.title')}</h2>
 
+      {/* Frontend Section */}
       <div className="skills-category">
         <h3>{t('skills.frontend')}</h3>
         <div className="skills-items">
@@ -41,10 +40,6 @@ const Skills = () => {
             <p>{t('skills.css')}</p>
           </div>
           <div className="skill">
-            <img src={js} alt="JavaScript" />
-            <p>{t('skills.javascript')}</p>
-          </div>
-          <div className="skill">
             <img src={reactjs} alt="React.js" />
             <p>{t('skills.react')}</p>
           </div>
@@ -55,6 +50,7 @@ const Skills = () => {
         </div>
       </div>
 
+      {/* Backend Section */}
       <div className="skills-category">
         <h3>{t('skills.backend')}</h3>
         <div className="skills-items">
@@ -81,6 +77,7 @@ const Skills = () => {
         </div>
       </div>
 
+      {/* Cloud and DevOps Section */}
       <div className="skills-category">
         <h3>{t('skills.cloud')}</h3>
         <div className="skills-items">
@@ -89,20 +86,13 @@ const Skills = () => {
             <p>{t('skills.azure_cloud')}</p>
           </div>
           <div className="skill">
-            <img src={azvm} alt="Azure VM" />
-            <p>{t('skills.azure_vm')}</p>
-          </div>
-          <div className="skill">
-            <img src={azsql} alt="Azure SQL" />
-            <p>{t('skills.azure_sql')}</p>
-          </div>
-          <div className="skill">
-            <img src={azvnet} alt="Azure VNet" />
-            <p>{t('skills.azure_vnet')}</p>
+            <img src={dev} alt="Azure DevOps" />
+            <p>{t('skills.azure_devops')}</p>
           </div>
         </div>
       </div>
 
+      {/* Tools Section */}
       <div className="skills-category">
         <h3>{t('skills.tools')}</h3>
         <div className="skills-items">
@@ -119,16 +109,27 @@ const Skills = () => {
             <p>{t('skills.postman')}</p>
           </div>
           <div className="skill">
-            <img src={docker} alt="Docker" />
-            <p>{t('skills.docker')}</p>
-          </div>
-          <div className="skill">
             <img src={webstorm} alt="WebStorm" />
             <p>{t('skills.webstorm')}</p>
           </div>
           <div className="skill">
             <img src={vscode} alt="VS Code" />
             <p>{t('skills.vscode')}</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Languages Section */}
+      <div className="skills-category">
+        <h3>{t('skills.languages')}</h3>
+        <div className="skills-items">
+          <div className="skill">
+            <img src={py} alt="Python" />
+            <p>{t('skills.python')}</p>
+          </div>
+          <div className="skill">
+            <img src={js} alt="JavaScript" />
+            <p>{t('skills.javascript')}</p>
           </div>
         </div>
       </div>
