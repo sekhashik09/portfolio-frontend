@@ -9,11 +9,13 @@ import Skills from './components/skills/Skills';
 import Language from './components/language/Language'; 
 import { useTranslation } from 'react-i18next';
 import Footer from './components/footer/Footer';
+import Loader from './loader/Loader';
 
 function App() {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (window.innerWidth < 768) {
@@ -29,16 +31,31 @@ function App() {
     setOpen(false);
   };
 
+
+  useEffect(() => {
+    
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
+
+    return () => clearTimeout(timer); 
+  }, []);
+
   return (
-    <>
-      <Language /> 
-      <Header />
+      <>
+      {isLoading ? (
+        <Loader /> 
+      ) : (
+        <>
+          <Header />
       <Home />
       <About />
       <Skills />
       <Portfolio />
       <Contact />
       <Footer/>
+        </>
+      )}
     </>
   );
 }

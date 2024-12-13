@@ -144,7 +144,7 @@ section{
         margin-bottom: 7px;
     }
 
-    .sci a {
+    .sci a { 
         font-size: 14px; /* Reduce icon size */
         margin: 3px 2px;
     }
@@ -153,7 +153,7 @@ section{
 @media (max-width: 480px) {
     .hero {
         padding: 20px 5%;
-        margin-top: 38px; /* Even smaller padding for small screens */
+        margin-top: 0px; /* Even smaller padding for small screens */
     }
 
     .home-img .img-box {
